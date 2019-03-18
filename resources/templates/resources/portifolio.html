@@ -1,0 +1,22 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+
+
+
+<section class="bg-light" id="portfolio">
+  <div class="container-fluid">
+
+
+    {% if self.heading != '' or self.paragraph != ''  %}
+          <div class="row">
+              <div class="col-12 text-center">
+                  <h2 class="section-heading text-uppercase">{{ self.heading }}</h2>
+                  <h3 class="section-subheading text-muted text-justify">{{ self.paragraph  }}</h3>
+              </div>
+          </div>
+    {% endif %}
+
+    {% include_block self.grid %}
+
+   </div>
+</section>

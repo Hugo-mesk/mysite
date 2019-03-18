@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+
+{% block content %}
+
+{% with blocks=self.body %}
+
+    {% for block in blocks %}
+        {% if block.block_type == 'heading' %}
+            <h2>{{ block.value }}</h2>
+        {% else %}
+          {% if forloop.first %}
+            {% include_block block with service_first=True %}
+          {% elif forloop.last %}
+            {% include_block block with service_last=True %}
+          {% else %}
+            {% include_block block %}
+          {% endif %}
+        {% endif %}
+    {% endfor %}
+
+{% endwith %}
+
+{% endblock content %}

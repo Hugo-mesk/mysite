@@ -1,0 +1,24 @@
+{% load staticfiles i18n menu_tags %}
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">Rafael Ribeiro</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          {% for item in menu_items %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger {{ item.active_class }}" href="{% if not item.href == '/' %}{{ item.href }}{% else %}{% endif %}">{{ item.text }}</a>
+              {% if item.has_children_in_menu %}
+                 {% sub_menu item %}
+            {% endif %}
+            </li>
+          {% endfor %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,16 @@
+{% load wagtailcore_tags wagtailimages_tags counter_action %}
+
+
+<a class="portfolio-link" data-toggle="modal" href="{{ self.document.url }}">
+  <div class="portfolio-hover">
+    <div class="portfolio-hover-content">
+      <i class="fas fa-download fa-3x"></i>
+    </div>
+  </div>
+  {% image self.image width-400 as tmp_photo %}
+  <img class="img-fluid" src="{{ tmp_photo.url }}" alt="">
+</a>
+<div class="portfolio-caption">
+  <h4>{{ self.heading }}</h4>
+  <p class="text-muted">{{ self.subheading }}</p>
+</div>
