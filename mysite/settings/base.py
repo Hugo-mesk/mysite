@@ -51,7 +51,8 @@ INSTALLED_APPS = [
 
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
-    'debug_toolbar',
+    #'debug_toolbar',
+    'storage',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ MIDDLEWARE = [
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    #'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -168,3 +169,8 @@ WAGTAIL_SITE_NAME = "mysite"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# Django Storage for Dropbox file upload PAAS storege limit
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = '<YOUR TOKEN>'
+DROPBOX_ROOT_PATH = '<APP ROOT>'
