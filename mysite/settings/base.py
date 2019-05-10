@@ -24,7 +24,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
     'search',
     'resources',
 
@@ -50,9 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'debug_toolbar',
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [

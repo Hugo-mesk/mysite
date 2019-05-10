@@ -1,13 +1,12 @@
 {% load wagtailcore_tags wagtailimages_tags counter_action %}
 
-<div class="row">
-	<div class="col-md-4 col-sm-6 portfolio-item">
-    {% include_block self.left_column %}
-  </div>
-	<div class="col-md-4 col-sm-6 portfolio-item">
-    {% include_block self.center_column %}
-  </div>
-  <div class="col-md-4 col-sm-6 portfolio-item">
-    {% include_block self.right_column %}
-  </div>
+
+<div class="col-md-4 col-sm-6 portfolio-item">
+  {% include_block self.left_column %}
+</div>
+<div class="col-md-4 col-sm-6 portfolio-item">
+  {% include_block self.center_column %}
+</div>
+<div class="col-md-4 col-sm-6 portfolio-item">
+  {% include_block self.right_column %}
 </div>

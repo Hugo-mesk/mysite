@@ -1,0 +1,13 @@
+{% load wagtailcore_tags wagtailimages_tags counter_action %}
+
+<div class="row text-center">
+  <div class="col-md-4">
+    {% include_block self.left_column %}
+  </div>
+  <div class="col-md-4">
+    {% include_block self.center_column %}
+  </div>
+  <div class="col-md-4">
+    {% include_block self.right_column %}
+  </div>
+</div>

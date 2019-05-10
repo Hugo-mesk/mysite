@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags counter_action %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+
+{% block content %}
+
+    {% with blocks=self.service %}
+
+        {% for block in blocks %}
+              {% if forloop.first %}
+                {% include_block block with service_first=True %}
+              {% elif forloop.last %}
+                {% include_block block with service_last=True %}
+              {% else %}
+                {% include_block block %}
+              {% endif %}
+        {% endfor %}
+
+    {% endwith %}
+
+    {% with blocks=self.portifolio %}
+
+        {% for block in blocks %}
+              {% if forloop.first %}
+                {% include_block block with service_first=True %}
+              {% elif forloop.last %}
+                {% include_block block with service_last=True %}
+              {% else %}
+                {% include_block block %}
+              {% endif %}
+        {% endfor %}
+
+    {% endwith %}
+
+{% endblock content %}

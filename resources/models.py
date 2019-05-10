@@ -6,13 +6,19 @@ from wagtail.core import blocks
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 
-from .blocks import PortifolioBlock
+from .blocks import PortifolioBlock, ServiceBlock
 
-class PortifolioIndex(Page):
-    body = StreamField([
-        ('portifolio',PortifolioBlock()),
-    ])
+class Index(Page):
+    portifolio = StreamField(blocks.StreamBlock([('portifolio', PortifolioBlock())],
+                             required=False),
+                             blank=True)
+    service = StreamField(blocks.StreamBlock([('service', ServiceBlock())],
+                          required=False),
+                          blank=True)
+
+
 
     content_panels = Page.content_panels + [
-        StreamFieldPanel('body'),
+        StreamFieldPanel('portifolio'),
+        StreamFieldPanel('service'),
     ]
